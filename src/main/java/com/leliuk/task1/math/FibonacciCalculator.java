@@ -1,4 +1,4 @@
-package com.leliuk.math;
+package com.leliuk.task1.math;
 
 import java.math.BigInteger;
 
@@ -7,5 +7,5 @@ public interface FibonacciCalculator {
 
     long recursiveFib(int n);
 
-    BigInteger bigMathFib(int n);
+    BigInteger bigFib(int n);
 }

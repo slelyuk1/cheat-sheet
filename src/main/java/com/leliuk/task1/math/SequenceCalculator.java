@@ -1,4 +1,4 @@
-package com.leliuk.math;
+package com.leliuk.task1.math;
 
 import java.math.BigInteger;
 
@@ -6,6 +6,7 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
 
     @Override
     public long iterativeFac(int n) {
+        negativeCheck(n);
         long res = 1;
         for (int i = 1; i <= n; ++i) {
             res *= i;
@@ -16,11 +17,13 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
 
     @Override
     public long recursiveFac(int n) {
+        negativeCheck(n);
         return n < 1 ? 1 : n * recursiveFac(n - 1);
     }
 
     @Override
     public BigInteger bigFac(int n) {
+        negativeCheck(n);
         BigInteger res = BigInteger.ONE;
         for (int i = 1; i <= n; ++i) {
             res = res.multiply(BigInteger.valueOf(i));
@@ -30,6 +33,7 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
 
     @Override
     public long iterativeFib(int n) {
+        negativeCheck(n);
         long left = 0, right = 1;
         for (int i = 1; i <= n; ++i) {
             long temp = left + right;
@@ -41,9 +45,7 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
 
     @Override
     public long recursiveFib(int n) {
-        if (n < 0) {
-            throw new ArithmeticException("Parameter n can't be less than zero !");
-        }
+        negativeCheck(n);
         if (n == 0 || n == 1) {
             return n;
         }
@@ -51,7 +53,8 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
     }
 
     @Override
-    public BigInteger bigMathFib(int n) {
+    public BigInteger bigFib(int n) {
+        negativeCheck(n);
         BigInteger left = BigInteger.ZERO, right = BigInteger.ONE;
         for (int i = 1; i <= n; ++i) {
             BigInteger temp = left.add(right);
@@ -59,5 +62,11 @@ public class SequenceCalculator implements FactorialCalculator, FibonacciCalcula
             right = temp;
         }
         return left;
+    }
+
+    private static void negativeCheck(int n) throws ArithmeticException {
+        if (n < 0) {
+            throw new IllegalArgumentException("N can't be negative !");
+        }
     }
 }
