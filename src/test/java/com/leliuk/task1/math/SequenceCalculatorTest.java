@@ -1,19 +1,23 @@
 package com.leliuk.task1.math;
 
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.rules.ExpectedException;
 
 import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JUnit4.class)
 public class SequenceCalculatorTest {
     private SequenceCalculator calculator = new SequenceCalculator();
 
-    @Test(expected = IllegalArgumentException.class)
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
     public void iterativeFacMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.iterativeFac(-5);
     }
 
@@ -32,8 +36,10 @@ public class SequenceCalculatorTest {
         assertEquals(120, calculator.iterativeFac(5));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void recursiveFacMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.recursiveFac(-5);
     }
 
@@ -52,8 +58,10 @@ public class SequenceCalculatorTest {
         assertEquals(120, calculator.recursiveFac(5));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void bigFacMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.bigFac(-5);
     }
 
@@ -77,8 +85,10 @@ public class SequenceCalculatorTest {
         assertEquals(new BigInteger("2432902008176640000"), calculator.bigFac(20));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void iterativeFibMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.iterativeFib(-5);
     }
 
@@ -97,8 +107,10 @@ public class SequenceCalculatorTest {
         assertEquals(75025, calculator.iterativeFib(25));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void recursiveFibMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.recursiveFib(-5);
     }
 
@@ -117,8 +129,10 @@ public class SequenceCalculatorTest {
         assertEquals(75025, calculator.recursiveFib(25));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void bigFibMustThrowIllegalArgumentException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("N can't be negative !");
         calculator.bigFib(-5);
     }
 

@@ -22,37 +22,37 @@ public class MySorterTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void selectionSortShouldThrowIllegalArgumentException() {
+    public void selectionSortMustThrowIllegalArgumentException() {
         MySorter.selectionSort(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void insertionSortShouldThrowIllegalArgumentException() {
+    public void insertionSortMustThrowIllegalArgumentException() {
         MySorter.insertionSort(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void bubbleSortShouldThrowIllegalArgumentException() {
+    public void bubbleSortMustThrowIllegalArgumentException() {
         MySorter.bubbleSort(null);
     }
 
     @Test
-    public void selectionSortShouldSortZeroSizeArray() {
+    public void selectionSortMustSortZeroSizeArray() {
         MySorter.selectionSort(new int[0]);
     }
 
     @Test
-    public void insertionSortShouldSortZeroSizeArray() {
+    public void insertionSortMustSortZeroSizeArray() {
         MySorter.insertionSort(new int[0]);
     }
 
     @Test
-    public void bubbleSortShouldSortZeroSizeArray() {
+    public void bubbleSortMustSortZeroSizeArray() {
         MySorter.bubbleSort(new int[0]);
     }
 
     @Test
-    public void shouldSelectionSort() {
+    public void mustSelectionSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
         MySorter.selectionSort(toSort);
         Arrays.sort(copy);
@@ -60,7 +60,7 @@ public class MySorterTest {
     }
 
     @Test
-    public void shouldInsertionSort() {
+    public void mustInsertionSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
         MySorter.insertionSort(toSort);
         Arrays.sort(copy);
@@ -68,7 +68,7 @@ public class MySorterTest {
     }
 
     @Test
-    public void shouldBubbleSort() {
+    public void mustBubbleSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
         MySorter.bubbleSort(toSort);
         Arrays.sort(copy);

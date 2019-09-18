@@ -22,19 +22,20 @@ public class User {
             return false;
         }
         User toCheck = (User) obj;
-        return name.equals(toCheck.name)
-                && surname.equals(toCheck.surname)
+        return name == null ? name == toCheck.name : name.equals(toCheck.name)
+                && surname == null ? surname == toCheck.surname : surname.equals(toCheck.surname)
                 && age == toCheck.age
                 && active == toCheck.active;
     }
 
     @Override
     public int hashCode() {
+        final int prime = 31;
         int hash = 7;
-        hash = 31 * hash + (name == null ? 0 : name.hashCode());
-        hash = 31 * hash + (surname == null ? 0 : surname.hashCode());
-        hash = 31 * hash + age;
-        hash = 31 * hash + (active ? 1231 : 1237);
+        hash = prime * hash + (name == null ? 0 : name.hashCode());
+        hash = prime * hash + (surname == null ? 0 : surname.hashCode());
+        hash = prime * hash + age;
+        hash = prime * hash + (active ? 1231 : 1237);
         return hash;
     }
 }

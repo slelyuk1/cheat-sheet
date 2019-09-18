@@ -1,6 +1,10 @@
 package com.leliuk.task1.sort;
 
-public class MySorter {
+public final class MySorter {
+
+    private MySorter() throws InstantiationException {
+        throw new InstantiationException("Can't instantiate utility class !");
+    }
 
     public static void bubbleSort(int[] arr) {
         checkNullValue(arr);
