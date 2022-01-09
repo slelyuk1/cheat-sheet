@@ -1,13 +1,20 @@
-package com.leliuk.task1.sort;
+package com.leliuk.sort;
 
-public final class MySorter {
+import com.leliuk.utils.AbstractUtilityClass;
 
-    private MySorter() throws InstantiationException {
-        throw new InstantiationException("Can't instantiate utility class !");
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
+
+// todo maybe refactor
+public final class SortUtils extends AbstractUtilityClass {
+
+    private SortUtils() {
+        super();
     }
 
-    public static void bubbleSort(int[] arr) {
-        checkNullValue(arr);
+    public static void bubbleSort(@NotNull int[] arr) {
+        Objects.requireNonNull(arr, "Array is expected to be non-null");
         final int len = arr.length;
         for (int i = 0; i < len - 1; i++)
             for (int j = 0; j < len - i - 1; j++)
@@ -16,8 +23,8 @@ public final class MySorter {
                 }
     }
 
-    public static void selectionSort(int[] arr) {
-        checkNullValue(arr);
+    public static void selectionSort(@NotNull int[] arr) {
+        Objects.requireNonNull(arr, "Array is expected to be non-null");
         final int len = arr.length;
         for (int i = 0; i < len; ++i) {
             int min = arr[i];
@@ -32,8 +39,8 @@ public final class MySorter {
         }
     }
 
-    public static void insertionSort(int[] arr) {
-        checkNullValue(arr);
+    public static void insertionSort(@NotNull int[] arr) {
+        Objects.requireNonNull(arr, "Array is expected to be non-null");
         for (int i = 1; i < arr.length; i++) {
             int toSwap = arr[i];
             int j;
@@ -44,14 +51,9 @@ public final class MySorter {
         }
     }
 
-    private static void swap(int[] a, int i, int j) {
+    private static void swap(@NotNull int[] a, @Min(0) int i, int j) {
         int tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
-    }
-
-    private static void checkNullValue(int[] arr) {
-        if (arr == null)
-            throw new IllegalArgumentException("You can't pass null array to method");
     }
 }

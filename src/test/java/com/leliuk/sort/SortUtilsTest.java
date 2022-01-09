@@ -1,4 +1,4 @@
-package com.leliuk.task1.sort;
+package com.leliuk.sort;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,9 +8,10 @@ import java.util.Random;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class MySorterTest {
+public class SortUtilsTest {
     private static final int ARR_LEN = 10000;
-    private Random RAND = new Random();
+    private static final Random RAND = new Random();
+
     private int[] toSort;
 
     @Before
@@ -21,40 +22,43 @@ public class MySorterTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    // todo expected message
+    @Test(expected = NullPointerException.class)
     public void selectionSortMustThrowIllegalArgumentException() {
-        MySorter.selectionSort(null);
+        SortUtils.selectionSort(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    // todo expected message
+    @Test(expected = NullPointerException.class)
     public void insertionSortMustThrowIllegalArgumentException() {
-        MySorter.insertionSort(null);
+        SortUtils.insertionSort(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    // todo expected message
+    @Test(expected = NullPointerException.class)
     public void bubbleSortMustThrowIllegalArgumentException() {
-        MySorter.bubbleSort(null);
+        SortUtils.bubbleSort(null);
     }
 
     @Test
     public void selectionSortMustSortZeroSizeArray() {
-        MySorter.selectionSort(new int[0]);
+        SortUtils.selectionSort(new int[0]);
     }
 
     @Test
     public void insertionSortMustSortZeroSizeArray() {
-        MySorter.insertionSort(new int[0]);
+        SortUtils.insertionSort(new int[0]);
     }
 
     @Test
     public void bubbleSortMustSortZeroSizeArray() {
-        MySorter.bubbleSort(new int[0]);
+        SortUtils.bubbleSort(new int[0]);
     }
 
     @Test
     public void mustSelectionSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
-        MySorter.selectionSort(toSort);
+        SortUtils.selectionSort(toSort);
         Arrays.sort(copy);
         assertArrayEquals(copy, toSort);
     }
@@ -62,7 +66,7 @@ public class MySorterTest {
     @Test
     public void mustInsertionSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
-        MySorter.insertionSort(toSort);
+        SortUtils.insertionSort(toSort);
         Arrays.sort(copy);
         assertArrayEquals(copy, toSort);
     }
@@ -70,7 +74,7 @@ public class MySorterTest {
     @Test
     public void mustBubbleSort() {
         int[] copy = Arrays.copyOf(toSort, toSort.length);
-        MySorter.bubbleSort(toSort);
+        SortUtils.bubbleSort(toSort);
         Arrays.sort(copy);
         assertArrayEquals(copy, toSort);
     }
