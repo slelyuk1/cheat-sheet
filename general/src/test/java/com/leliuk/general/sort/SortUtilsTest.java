@@ -1,4 +1,4 @@
-package com.leliuk.sort;
+package com.leliuk.general.sort;
 
 import org.junit.Before;
 import org.junit.Test;

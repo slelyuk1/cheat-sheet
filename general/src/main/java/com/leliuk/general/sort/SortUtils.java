@@ -1,6 +1,6 @@
-package com.leliuk.sort;
+package com.leliuk.general.sort;
 
-import com.leliuk.utils.AbstractUtilityClass;
+import com.leliuk.general.utils.AbstractUtilityClass;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

@@ -1,6 +1,6 @@
-package com.leliuk.math;
+package com.leliuk.general.math;
 
-import com.leliuk.utils.CheckUtils;
+import com.leliuk.general.utils.CheckUtils;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

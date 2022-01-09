@@ -1,4 +1,4 @@
-package com.leliuk.utils;
+package com.leliuk.general.utils;
 
 public final class CheckUtils extends AbstractUtilityClass {
 

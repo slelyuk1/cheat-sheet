@@ -1,4 +1,4 @@
-package com.leliuk.math;
+package com.leliuk.general.math;
 
 import java.math.BigInteger;
 

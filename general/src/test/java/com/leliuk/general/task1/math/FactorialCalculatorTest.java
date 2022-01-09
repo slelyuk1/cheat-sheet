@@ -1,7 +1,7 @@
-package com.leliuk.task1.math;
+package com.leliuk.general.task1.math;
 
-import com.leliuk.math.FactorialCalculator;
-import com.leliuk.math.SequenceCalculator;
+import com.leliuk.general.math.FactorialCalculator;
+import com.leliuk.general.math.SequenceCalculator;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
