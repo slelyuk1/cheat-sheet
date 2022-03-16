@@ -1,19 +1,21 @@
-package com.leliuk.general.sequence;
+package com.leliuk.general.sequence.impl;
 
+import com.leliuk.general.sequence.SequenceCalculator;
+import com.leliuk.general.sequence.SequenceCalculatorValidNTest;
 import com.leliuk.general.sequence.impl.FibonacciCalculator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigInteger;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class FibonacciCalculatorTest implements SequenceCalculatorTest {
+@DisplayName("FibonacciCalculator tests with valid Ns")
+class FibonacciCalculatorValidNTest implements SequenceCalculatorValidNTest {
 
-    private static final List<Integer> INVALID_NS = List.of(-1, -2, -3, -4, -5, -6);
     private static final Map<Integer, Number> N_TO_VALID_LONG_VALUE = Map.ofEntries(
             Map.entry(0, 0),
             Map.entry(1, 1),
@@ -46,7 +48,7 @@ class FibonacciCalculatorTest implements SequenceCalculatorTest {
 
     private final SequenceCalculator testedCalculator;
 
-    public FibonacciCalculatorTest() {
+    public FibonacciCalculatorValidNTest() {
         this.testedCalculator = new FibonacciCalculator();
     }
 
@@ -56,63 +58,35 @@ class FibonacciCalculatorTest implements SequenceCalculatorTest {
     }
 
     @Override
-    @ParameterizedTest
-    @MethodSource("invalidNSupplier")
-    public void invalidNForBigIterativeShouldThrow(int invalidN) {
-        SequenceCalculatorTest.super.invalidNForBigIterativeShouldThrow(invalidN);
-    }
-
-    @Override
-    @ParameterizedTest
-    @MethodSource("invalidNSupplier")
-    public void invalidNForBigRecursiveShouldThrow(int invalidN) {
-        SequenceCalculatorTest.super.invalidNForBigRecursiveShouldThrow(invalidN);
-    }
-
-    @Override
-    @ParameterizedTest
-    @MethodSource("invalidNSupplier")
-    public void invalidNForIterativeShouldThrow(int invalidN) {
-        SequenceCalculatorTest.super.invalidNForIterativeShouldThrow(invalidN);
-    }
-
-    @Override
-    @ParameterizedTest
-    @MethodSource("invalidNSupplier")
-    public void invalidNForRecursiveShouldThrow(int invalidN) {
-        SequenceCalculatorTest.super.invalidNForRecursiveShouldThrow(invalidN);
-    }
-
-    @Override
+    @DisplayName("'bigIterative' for valid N returns valid value")
     @ParameterizedTest
     @MethodSource("nAndExpectedSequenceBigIntegerValueSupplier")
     public void bigIterativeShouldReturnExpected(int n, BigInteger expectedValue) {
-        SequenceCalculatorTest.super.bigIterativeShouldReturnExpected(n, expectedValue);
+        SequenceCalculatorValidNTest.super.bigIterativeShouldReturnExpected(n, expectedValue);
     }
 
     @Override
+    @DisplayName("'bigRecursive' for valid N returns valid value")
     @ParameterizedTest
     @MethodSource("nAndExpectedSequenceBigIntegerValueSupplier")
     public void bigRecursiveShouldReturnExpected(int n, BigInteger expectedValue) {
-        SequenceCalculatorTest.super.bigRecursiveShouldReturnExpected(n, expectedValue);
+        SequenceCalculatorValidNTest.super.bigRecursiveShouldReturnExpected(n, expectedValue);
     }
 
     @Override
+    @DisplayName("'iterative' for valid N returns valid value")
     @ParameterizedTest
     @MethodSource("nAndExpectedSequenceLongValueSupplier")
     public void iterativeShouldReturnExpected(int n, long expectedValue) {
-        SequenceCalculatorTest.super.iterativeShouldReturnExpected(n, expectedValue);
+        SequenceCalculatorValidNTest.super.iterativeShouldReturnExpected(n, expectedValue);
     }
 
     @Override
+    @DisplayName("'recursive' for valid N returns valid value")
     @ParameterizedTest
     @MethodSource("nAndExpectedSequenceLongValueSupplier")
     public void recursiveShouldReturnExpected(int n, long expectedValue) {
-        SequenceCalculatorTest.super.recursiveShouldReturnExpected(n, expectedValue);
-    }
-
-    static Stream<Integer> invalidNSupplier() {
-        return INVALID_NS.stream();
+        SequenceCalculatorValidNTest.super.recursiveShouldReturnExpected(n, expectedValue);
     }
 
     static Stream<Arguments> nAndExpectedSequenceLongValueSupplier() {

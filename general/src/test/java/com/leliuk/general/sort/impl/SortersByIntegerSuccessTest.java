@@ -1,8 +1,8 @@
-package com.leliuk.general.sort;
+package com.leliuk.general.sort.impl;
 
-import com.leliuk.general.sort.impl.BubbleSorter;
-import com.leliuk.general.sort.impl.InsertionSorter;
-import com.leliuk.general.sort.impl.SelectionSorter;
+import com.leliuk.general.sort.Sorter;
+import com.leliuk.general.sort.SortersSuccessTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,7 +11,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class SortersByIntegerTest implements AbstractSortersTest<Integer, Integer> {
+@DisplayName("Successful sorting tests for all implemented sorters with integer arrays")
+public class SortersByIntegerSuccessTest implements SortersSuccessTest<Integer, Integer> {
 
     private static final List<Sorter> TESTED_SORTERS = List.of(
             new BubbleSorter(),
@@ -40,59 +41,35 @@ public class SortersByIntegerTest implements AbstractSortersTest<Integer, Intege
     );
 
     @Override
-    @ParameterizedTest
-    @MethodSource("sorterProvider")
-    public void sortNullArrayInPlaceIsExpectedToDoNothing(Sorter sorter) {
-        AbstractSortersTest.super.sortNullArrayInPlaceIsExpectedToDoNothing(sorter);
-    }
-
-    @Override
-    @ParameterizedTest
-    @MethodSource("sorterProvider")
-    public void sortNullArrayToCopyIsExpectedToReturnNull(Sorter sorter) {
-        AbstractSortersTest.super.sortNullArrayToCopyIsExpectedToReturnNull(sorter);
-    }
-
-    @Override
-    @ParameterizedTest
-    @MethodSource("sorterProvider")
-    public void comparableSortNullArrayInPlaceIsExpectedToDoNothing(Sorter sorter) {
-        AbstractSortersTest.super.comparableSortNullArrayInPlaceIsExpectedToDoNothing(sorter);
-    }
-
-    @Override
+    @DisplayName("Array sorting with comparator is expected to be correct")
     @ParameterizedTest
     @MethodSource("sorterArrayAndComparatorProvider")
-    public void comparableSortNullArrayToCopyIsExpectedToReturnNull(Sorter sorter) {
-        AbstractSortersTest.super.comparableSortNullArrayToCopyIsExpectedToReturnNull(sorter);
+    public void sortInPlaceSuccessful(Sorter sorter, Integer[] checkedArray, Comparator<Integer> comparator) {
+        SortersSuccessTest.super.sortInPlaceSuccessful(sorter, checkedArray, comparator);
     }
 
     @Override
+    @DisplayName("Array sorting into copy with comparator is expected to be correct")
     @ParameterizedTest
     @MethodSource("sorterArrayAndComparatorProvider")
-    public void sortInPlaceSuccessful(Sorter sorter, Integer[] array, Comparator<Integer> comparator) {
-        AbstractSortersTest.super.sortInPlaceSuccessful(sorter, array, comparator);
+    public void sortToCopySuccessful(Sorter sorter, Integer[] checkedArray, Comparator<Integer> comparator) {
+        SortersSuccessTest.super.sortToCopySuccessful(sorter, checkedArray, comparator);
     }
 
     @Override
-    @ParameterizedTest
-    @MethodSource("sorterArrayAndComparatorProvider")
-    public void sortToCopySuccessful(Sorter sorter, Integer[] array, Comparator<Integer> comparator) {
-        AbstractSortersTest.super.sortToCopySuccessful(sorter, array, comparator);
-    }
-
-    @Override
+    @DisplayName("Comparable array sorting is expected to be correct")
     @ParameterizedTest
     @MethodSource("sorterAndComparableArrayProvider")
-    public void comparableSortInPlaceSuccessful(Sorter sorter, Integer[] array) {
-        AbstractSortersTest.super.comparableSortInPlaceSuccessful(sorter, array);
+    public void comparableSortInPlaceSuccessful(Sorter sorter, Integer[] checkedArray) {
+        SortersSuccessTest.super.comparableSortInPlaceSuccessful(sorter, checkedArray);
     }
 
     @Override
+    @DisplayName("Comparable array sorting into copy is expected to be correct")
     @ParameterizedTest
     @MethodSource("sorterAndComparableArrayProvider")
-    public void comparableSortToCopySuccessful(Sorter sorter, Integer[] array) {
-        AbstractSortersTest.super.comparableSortToCopySuccessful(sorter, array);
+    public void comparableSortToCopySuccessful(Sorter sorter, Integer[] checkedArray) {
+        SortersSuccessTest.super.comparableSortToCopySuccessful(sorter, checkedArray);
     }
 
     static Stream<Sorter> sorterProvider() {

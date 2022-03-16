@@ -2,7 +2,7 @@ package com.leliuk.general.utils;
 
 import javax.validation.constraints.Min;
 
-public final class ArrayUtils extends AbstractUtilityClass {
+public final class ArrayUtils {
 
     public static <T> void swap(T[] a, @Min(0) int i, @Min(0) int j) {
         T tmp = a[i];
@@ -11,6 +11,6 @@ public final class ArrayUtils extends AbstractUtilityClass {
     }
 
     private ArrayUtils() {
-        super();
+        throw new IllegalStateException(getClass() + "is not expected to be instantiated");
     }
 }
