@@ -1,18 +1,18 @@
-package com.leliuk.general.math;
+package com.leliuk.general.sequence.impl;
 
+import com.leliuk.general.sequence.SequenceCalculator;
 import com.leliuk.general.utils.CheckUtils;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 
-// todo how to annotate method most specifically
 public class FibonacciCalculator implements SequenceCalculator {
 
     @Override
     public BigInteger bigIterative(@Min(0) int n) {
         CheckUtils.negativeCheck(n);
-        BigInteger left = BigInteger.ZERO, right = BigInteger.ONE;
+        BigInteger left = BigInteger.ZERO;
+        BigInteger right = BigInteger.ONE;
         for (int i = 1; i <= n; ++i) {
             BigInteger temp = left.add(right);
             left = right;
@@ -27,10 +27,12 @@ public class FibonacciCalculator implements SequenceCalculator {
         return innerBigRecursive(BigInteger.valueOf(n));
     }
 
-    private BigInteger innerBigRecursive(@NotNull BigInteger n) {
+    private BigInteger innerBigRecursive(BigInteger n) {
         if (BigInteger.ONE.compareTo(n) >= 0) {
             return n;
         }
-        return innerBigRecursive(n.subtract(BigInteger.ONE)).add(innerBigRecursive(n.subtract(BigInteger.TWO)));
+        BigInteger nMinusOne = innerBigRecursive(n.subtract(BigInteger.ONE));
+        BigInteger nMinusTwo = innerBigRecursive(n.subtract(BigInteger.TWO));
+        return nMinusOne.add(nMinusTwo);
     }
 }

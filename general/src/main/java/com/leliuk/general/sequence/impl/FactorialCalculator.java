@@ -1,9 +1,9 @@
-package com.leliuk.general.math;
+package com.leliuk.general.sequence.impl;
 
+import com.leliuk.general.sequence.SequenceCalculator;
 import com.leliuk.general.utils.CheckUtils;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 
 public class FactorialCalculator implements SequenceCalculator {
@@ -24,7 +24,10 @@ public class FactorialCalculator implements SequenceCalculator {
         return innerBigRecursive(BigInteger.valueOf(n));
     }
 
-    private BigInteger innerBigRecursive(@NotNull BigInteger n) {
-        return BigInteger.ONE.compareTo(n) > 0 ? BigInteger.ONE : n.multiply(innerBigRecursive(n.subtract(BigInteger.ONE)));
+    private BigInteger innerBigRecursive(BigInteger n) {
+        if (BigInteger.ONE.compareTo(n) > 0) {
+            return BigInteger.ONE;
+        }
+        return n.multiply(innerBigRecursive(n.subtract(BigInteger.ONE)));
     }
 }
