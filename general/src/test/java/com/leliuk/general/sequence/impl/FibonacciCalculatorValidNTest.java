@@ -2,7 +2,6 @@ package com.leliuk.general.sequence.impl;
 
 import com.leliuk.general.sequence.SequenceCalculator;
 import com.leliuk.general.sequence.SequenceCalculatorValidNTest;
-import com.leliuk.general.sequence.impl.FibonacciCalculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -48,7 +47,7 @@ class FibonacciCalculatorValidNTest implements SequenceCalculatorValidNTest {
 
     private final SequenceCalculator testedCalculator;
 
-    public FibonacciCalculatorValidNTest() {
+    FibonacciCalculatorValidNTest() {
         this.testedCalculator = new FibonacciCalculator();
     }
 

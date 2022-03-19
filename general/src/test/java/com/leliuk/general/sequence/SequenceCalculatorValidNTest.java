@@ -25,7 +25,7 @@ public interface SequenceCalculatorValidNTest {
         validNShouldReturnExpected(getTestedCalculator()::recursive, n, expectedValue);
     }
 
-    private void validNShouldReturnExpected(Function<Integer, Number> testedFunction,
+    private static void validNShouldReturnExpected(Function<Integer, Number> testedFunction,
                                             int n,
                                             Number expectedValue) {
         Number actualValue = testedFunction.apply(n);

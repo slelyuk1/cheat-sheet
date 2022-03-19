@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @DisplayName("FactorialCalculator tests with invalid Ns")
-public class FactorialCalculatorInvalidNTest implements SequenceCalculatorInvalidNTest {
+class FactorialCalculatorInvalidNTest implements SequenceCalculatorInvalidNTest {
 
     private static final List<Integer> INVALID_NS = List.of(-1, -2, -3, -4, -5, -6);
 
     private final SequenceCalculator testedCalculator;
 
-    public FactorialCalculatorInvalidNTest() {
+    FactorialCalculatorInvalidNTest() {
         this.testedCalculator = new FactorialCalculator();
     }
 

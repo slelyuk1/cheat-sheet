@@ -2,9 +2,6 @@ package com.leliuk.general.sort.impl;
 
 import com.leliuk.general.sort.Sorter;
 import com.leliuk.general.sort.SortersNullTest;
-import com.leliuk.general.sort.impl.BubbleSorter;
-import com.leliuk.general.sort.impl.InsertionSorter;
-import com.leliuk.general.sort.impl.SelectionSorter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,7 +10,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @DisplayName("Null tests for all implemented sorters")
-public class AllSortersNullTest implements SortersNullTest {
+class AllSortersNullTest implements SortersNullTest {
 
     private static final List<Sorter> TESTED_SORTERS = List.of(
             new BubbleSorter(),

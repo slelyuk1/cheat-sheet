@@ -16,7 +16,7 @@ class FibonacciCalculatorInvalidNTest implements SequenceCalculatorInvalidNTest 
 
     private final SequenceCalculator testedCalculator;
 
-    public FibonacciCalculatorInvalidNTest() {
+    FibonacciCalculatorInvalidNTest() {
         this.testedCalculator = new FibonacciCalculator();
     }
 

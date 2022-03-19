@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @DisplayName("Successful sorting tests for all implemented sorters with integer arrays")
-public class SortersByIntegerSuccessTest implements SortersSuccessTest<Integer, Integer> {
+class SortersByIntegerSuccessTest implements SortersSuccessTest<Integer, Integer> {
 
     private static final List<Sorter> TESTED_SORTERS = List.of(
             new BubbleSorter(),

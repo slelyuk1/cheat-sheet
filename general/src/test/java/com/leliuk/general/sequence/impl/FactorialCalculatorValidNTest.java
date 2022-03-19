@@ -47,7 +47,7 @@ class FactorialCalculatorValidNTest implements SequenceCalculatorValidNTest {
 
     private final SequenceCalculator testedCalculator;
 
-    public FactorialCalculatorValidNTest() {
+    FactorialCalculatorValidNTest() {
         this.testedCalculator = new FactorialCalculator();
     }
 
